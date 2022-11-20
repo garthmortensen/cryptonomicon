@@ -12,11 +12,14 @@ import com.example.springthymeredis.CryptoApplication;
 import com.example.springthymeredis.model.Project;
 import com.example.springthymeredis.repository.ProjectRepository;
 
+// @SpringBootApplication: auto scans the project and allows us to inject beans using @Autowired
 // FIXME: Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
 @SpringBootApplication
 public class CryptoApplication implements CommandLineRunner {
 
-	// TODO: What does @Autowired annotator do?
+	// FYI: @Autowired allows Spring to inject collaborating beans into our bean
+	// @Autowired on properties: eliminates the need for getters/setters
+	// it does different things, depending on where its called
 	@Autowired
 	ProjectRepository ir;
 
@@ -24,6 +27,7 @@ public class CryptoApplication implements CommandLineRunner {
 		SpringApplication.run(CryptoApplication.class, args);
 	}
 
+	// FYI: @Bean makes global objects that you can use all over the place, if you wire them in
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
 		//JedisConnectionFactory jf = new JedisConnectionFactory();
@@ -33,8 +37,6 @@ public class CryptoApplication implements CommandLineRunner {
 		return new JedisConnectionFactory();
 	}
 	
-	// TODO: what is this?
-	// TODO: What does @Bean annotator do?
 	@Bean
 	public RedisTemplate<String, Object> redisTemplate(){
 		RedisTemplate<String, Object> template = new RedisTemplate();
@@ -42,7 +44,7 @@ public class CryptoApplication implements CommandLineRunner {
 		return template;		
 	}
 
-	// TODO: What does @Override annotator do?
+	// FYI: @Override indicates the subclass is replacing inherited behavior
 	@Override
 	public void run(String... args) throws Exception {
 //		System.out.println("Saving");

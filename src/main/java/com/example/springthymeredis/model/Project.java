@@ -4,8 +4,10 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+// FYI: @RedisHash marks Objects as aggregate roots to be stored in a Redis hash
 @RedisHash("project")
 public class Project implements Serializable{
+	// FYI: @Id is Spring Data JPA. It indicates the field below is the PK
 	@Id
 	private String 	projectId;
 	private String 	projectName;
@@ -13,7 +15,7 @@ public class Project implements Serializable{
 	private float 	projectDecimals;
 	private int 	projectTotalSupply;
 
-	// id
+	// id, pk
 	public String getProjectId() {
 		return projectId;
 	}

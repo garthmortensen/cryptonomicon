@@ -26,6 +26,7 @@ public class MyRestController {
 	@Autowired
 	private ProjectRepository ir;
 
+		// FYI: @GetMapping maps HTTP GET requests to a specific handler method
 		@GetMapping("/")
 		public String index() {
 			return "Greetings from Spring Boot!";
@@ -36,6 +37,7 @@ public class MyRestController {
 			return "Greetings something!";
 		}
 		
+		// FYI: @PostMapping maps HTTP POST requests to a specific handler method
 		@PostMapping(value = "/rest/project/create", consumes= {"*/*"} ) 
 		public Project createProject(@RequestBody Project project) {
 			System.out.println(project.toString());

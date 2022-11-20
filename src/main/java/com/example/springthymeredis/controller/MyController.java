@@ -14,4 +14,11 @@ public class MyController {
 		model.addAttribute("name", "Garth");  // key-value. copy "name" into greeting.html template
 		return "greeting";  // returns a thymeleaf template `greeting.html`
 		}
+
+	// TODO: why do some routes appear in MyController, some in MyRestController?
+	@GetMapping("/lookup")
+	public String lookup() {
+		return "project_details";
+	}
+
 }
