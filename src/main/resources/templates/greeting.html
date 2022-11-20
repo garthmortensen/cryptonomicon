@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<HTML>
+<HEAD>
+  <TITLE>BetterCryptoBureau</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <!-- TODO: add bootstrap css -->
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+<!-- TODO: add js functionality found in RedisData greeting.html -->
+<!-- 	<SCRIPT LANGUAGE="JavaScript"> -->
+
+</HEAD>
+<BODY>
+
+  <h1>Welcome to BetterCryptoBureau</h1>
+
+
+  <p th:text="'Hello, ' + ${name} + '!'"/>
+
+
+  <h2>About</h2>
+
+  <p>The Better Cryptocurrency Bureau App is a financial information service provider that helps investors find trustworthy cryptocurrencies.</p>
+
+  <h2>Navigation & User stories</h2>
+  <p>User Acceptance Criteria can be found in the test directory.</p>
+  
+  <p><a href="/project_details">Lookup project</a></p>
+  <p>As an investor, I want to see who project founders are, so that I can easily research their backgrounds and credentials.</p>
+  
+  <p><a href="/project_details">View project purchase links</a></p>
+  <p>As an eager investor, I want links to external coin markets, so that I know I'm going to purchase the correct coin.</p>
+  
+  <p><a href="/project_details">View project reputation score</a></p>
+  <p>As an easily overwhelmed investor, I want to see a index number/letter system that tells me with a quick glance how reputable a coin is.</p>
+
+  <p><a href="/project_details">View project price series</a></p>
+  <p>As a risk averse investor, I want to see price time series, so that I can tell how volatile a cryptocurrency's price is. I'd also like to see price/initial coin offering price, to know how over- or under-valued the coin is, relative to first listing.</p>
+
+  <p><a href="/project_list">View project listing</a></p>
+  <p>As an explorer, I want to see a list of all documented cryptocurrencies, so that I can explore and find new ones.</p>
+  
+  <p><a href="/project_list">View project listing sorted</a></p>
+  <p>As an inquisitive investor, I want to sort the cryptocurrency list by reputation, price, and other metrics, so that I can discover new ones.</p>
+  
+  <p><a href="/project_search">Search for a project</a></p>
+  <p>As a user, I want to be able to search for specific cryptocurrency projects by name and tags, so that I can easily find what I'm looking for.</p>
+
+  <p><a href="/submit_info">Submit project Info</a></p>
+  <p>As an cryptocurrency expert, I want to contribute information to cryptocurrency projects, so that I can improve my reputation.</p>
+    
+  <p><a href="/history">View project information history</a></p>
+  <p>As an investor suspicious of Wall Street Bets, I want to access historical/archive/vintage information, so that I can see if users are contributing falsified information to pump up a project.</p>
+    
+  <p><a href="/login">Log in</a></p> 
+  <p>As a security-aware browser, I want to login with a username and password, so that I can feel safe.</p> 
+
+</BODY>
+</HTML>
