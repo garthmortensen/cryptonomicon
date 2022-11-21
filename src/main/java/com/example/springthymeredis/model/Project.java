@@ -10,11 +10,12 @@ public class Project implements Serializable{
 	// FYI: @Id is Spring Data JPA. It indicates the field below is the PK
 	@Id
 	private String 	projectId;
+	// TODO: @Id 2, or getBySecondId
 	private String 	projectName;
 	private String 	projectSymbol;
 	private float 	projectDecimals;
 	private int 	projectTotalSupply;
-
+	
 	// id, pk
 	public String getProjectId() {
 		return projectId;
