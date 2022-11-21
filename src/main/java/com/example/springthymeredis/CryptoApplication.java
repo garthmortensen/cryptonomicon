@@ -13,7 +13,7 @@ import com.example.springthymeredis.model.Project;
 import com.example.springthymeredis.repository.ProjectRepository;
 
 // @SpringBootApplication: auto scans the project and allows us to inject beans using @Autowired
-// FIXME: Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+// Remember: Launch Redis db before running this. \Redis-x64-5.0.14.1\redis-server.exe
 @SpringBootApplication
 public class CryptoApplication implements CommandLineRunner {
 
@@ -27,35 +27,19 @@ public class CryptoApplication implements CommandLineRunner {
 		SpringApplication.run(CryptoApplication.class, args);
 	}
 
-	// FYI: @Bean makes global objects that you can use all over the place, if you wire them in
-	@Bean
-	JedisConnectionFactory jedisConnectionFactory() {
-		//JedisConnectionFactory jf = new JedisConnectionFactory();
-		//jf.setHostName("localhost");
-		//jf.setPort(6379);
-		//return jf;
-		return new JedisConnectionFactory();
-	}
-	
-	@Bean
-	public RedisTemplate<String, Object> redisTemplate(){
-		RedisTemplate<String, Object> template = new RedisTemplate();
-		template.setConnectionFactory(jedisConnectionFactory());
-		return template;		
-	}
-
 	// FYI: @Override indicates the subclass is replacing inherited behavior
 	@Override
 	public void run(String... args) throws Exception {
-//		System.out.println("Saving");
-//		Item i = new Item();
-//		i.setItemId("id1");
-//		i.setItemName("Chair");
+		System.out.println("Saving");
+		Project i = new Project();
+		i.setProjectId("id1");
+		i.setProjectName("ZZZZZ");
 //		i.setItemPrice(20.0);
 //		i.setItemQty(2);
-//		ir.save(i);
-//		System.out.println("saved");
-//		
+		ir.save(i);
+		System.out.println("saved");
+
+		// search for something specific
 		//Get the item
 		Project iget = ir.findById("id1").get();
 		System.out.println("getting item with name "+iget.getProjectName());

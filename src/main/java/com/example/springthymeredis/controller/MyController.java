@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+// this controller populates thymeleaf
 @Controller
 public class MyController {
 	// create a method handler which returns "greeting"
@@ -20,5 +21,4 @@ public class MyController {
 	public String lookup() {
 		return "project_details";
 	}
-
 }

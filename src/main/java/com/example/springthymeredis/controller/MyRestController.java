@@ -21,6 +21,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
+// REST handled rest 
 @RestController
 public class MyRestController {
 	@Autowired
@@ -38,13 +39,15 @@ public class MyRestController {
 		}
 		
 		// FYI: @PostMapping maps HTTP POST requests to a specific handler method
-		@PostMapping(value = "/rest/project/create", consumes= {"*/*"} ) 
+		@PostMapping(value = "/rest/project/create", consumes= {"*/*"} )
 		public Project createProject(@RequestBody Project project) {
 			System.out.println(project.toString());
 			ir.save(project);
 			return project;
 		}
 		
+		// http://localhost:8080/data/?projectId=1
+		// this is search functionality that can be expanded to search by eg Symbol
 		@GetMapping(value = "/data/{projectId}") 
 		public Project getProjectIdData(@PathVariable String projectId) {
 			Project iget = null;
