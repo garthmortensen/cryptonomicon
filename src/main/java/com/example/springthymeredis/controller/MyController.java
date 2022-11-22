@@ -20,4 +20,9 @@ public class MyController {
 	public String lookup() {
 		return "project_details";
 	}
+
+	@GetMapping("/submit")
+	public String submit() {
+		return "submit";
+	}
 }

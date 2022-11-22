@@ -38,19 +38,10 @@ public class MyRestController {
 			return "Greetings something!";
 		}
 		
-		// FYI: @PostMapping maps HTTP POST requests to a specific handler method
-		// http://localhost:8080/rest/project/create?projectId=id3&projectName=bitcoin&projectSymbol=btc&projectDecimals=10&projectTotalSupply=1000
-		@PostMapping(value = "/rest/project/create", consumes= {"*/*"} )
-		public Project createProject(@RequestBody Project project) {
-			System.out.println(project.toString());
-			ir.save(project);
-			return project;
-		}
-		
-		// XXX: is this endpoint ok? http://localhost:8080/data/id1?projectId=id1
-		// XXX: changing from this fixed GET: public Project getItemIdData(@PathVariable String projectId) {
+		// XXX: is this endpoint ok? 
 		@GetMapping(value = "/data/{projectId}")
-		public Project getProjectIdData(@RequestParam("projectId") String projectId) {
+		public Project getItemIdData(@PathVariable String projectId) {  // http://localhost:8080/data/id1 = object oriented, built by system. this is the RESTful way, where everything is an object
+		// public Project getProjectIdData(@RequestParam("projectId") String projectId) {  // http://localhost:8080/data/id1?projectId=id1 = user centric, built by user
 			Project iget = null;
 			System.out.println("getting project with id "+projectId);
  			try {
@@ -59,6 +50,15 @@ public class MyRestController {
 				System.out.println("Not found xxx");
 			}
  			return iget;
+		}
+
+		// FYI: @PostMapping maps HTTP POST requests to a specific handler method
+		// http://localhost:8080/rest/project/create?projectId=id3&projectName=bitcoin&projectSymbol=btc&projectDecimals=10&projectTotalSupply=1000
+		@PostMapping(value = "/rest/project/create", consumes= {"*/*"} )
+		public Project createProject(@RequestBody Project project) {  // http://localhost:8080/data/id1 this is the RESTful way
+			System.out.println(project.toString());
+			ir.save(project);
+			return project;
 		}
 		
 		// TODO: search by secondary identifer

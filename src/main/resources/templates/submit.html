@@ -28,7 +28,7 @@
 	  }
 
 	  // open request
-	  xhr.open('POST', '/rest/project/create')
+	  xhr.open('POST', 'http://localhost:8080/rest/project/create')
 	  // set `Content-Type` header
 	  xhr.setRequestHeader('Content-Type', 'application/json')
 	  formData = new FormData(form)
@@ -44,7 +44,7 @@
 <BODY>
 <h1>Submit project info</h1>
 
-<FORM NAME="myform" ACTION="/rest/project/create" METHOD="POST">Enter the data<BR>
+<FORM NAME="myform" ACTION="" METHOD="POST">Enter the data<BR>
 	
 	<p>Project Id:</p>
 	<INPUT TYPE="text" NAME="projectId" VALUE=""><P>
