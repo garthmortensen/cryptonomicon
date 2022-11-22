@@ -12,8 +12,8 @@ import com.example.springthymeredis.CryptoApplication;
 import com.example.springthymeredis.model.Project;
 import com.example.springthymeredis.repository.ProjectRepository;
 
-// @SpringBootApplication: auto scans the project and allows us to inject beans using @Autowired
-// Remember: Launch Redis db before running this. \Redis-x64-5.0.14.1\redis-server.exe
+// Reminder: Launch Redis db before running this. \Redis-x64-5.0.14.1\redis-server.exe
+//@SpringBootApplication: auto scans the project and allows us to inject beans using @Autowired
 @SpringBootApplication
 public class CryptoApplication implements CommandLineRunner {
 
