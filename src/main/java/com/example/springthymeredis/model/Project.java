@@ -10,10 +10,9 @@ public class Project implements Serializable{
 	// FYI: @Id is Spring Data JPA. It indicates the field below is the PK
 	@Id
 	private String 	projectId;
-	// TODO: @Id 2, or getBySecondId
-	private String 	projectName;
+	private String 	projectName;  // TODO: @Id 2, or getBySecondId
 	private String 	projectSymbol;
-	private float 	projectDecimals;
+	private int 	projectDecimals;
 	private int 	projectTotalSupply;
 	
 	// id, pk
@@ -41,7 +40,7 @@ public class Project implements Serializable{
 	public float getProjectDecimals() {
 		return projectDecimals;
 	}
-	public void setProjectDecimals(float projectDecimals) {
+	public void setProjectDecimals(int projectDecimals) {
 		this.projectDecimals = projectDecimals;
 	}
 	// projectTotalSupply

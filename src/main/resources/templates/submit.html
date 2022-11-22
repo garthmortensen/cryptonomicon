@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<HTML>
+<HEAD>
+  <TITLE>BetterCryptoBureau submit project data</TITLE>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  <!-- TODO: add bootstrap css -->
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  
+  	<SCRIPT LANGUAGE="JavaScript">
+	function postData(form)
+	{
+	  // https://attacomsian.com/blog/xhr-json-post-request
+	  const xhr = new XMLHttpRequest()
+	
+	  // listen for `load` event
+	  xhr.onload = () => { // callback starts
+	  // print JSON response
+	  if (xhr.status >= 200 && xhr.status < 300) {
+	    // parse JSON
+	    const response = JSON.parse(xhr.responseText)
+	    console.log("Done", response)
+		}
+	  }
+
+	  // open request
+	  xhr.open('POST', '/rest/project/create')
+	  // set `Content-Type` header
+	  xhr.setRequestHeader('Content-Type', 'application/json')
+	  formData = new FormData(form)
+	  // send rquest with JSON payload
+	  formData = new FormData(form)
+	  formString = JSON.stringify(Object.fromEntries(formData));
+	  console.log(formString);
+	  xhr.send(formString)
+	}
+	</SCRIPT>
+  
+</HEAD>
+<BODY>
+<h1>Submit project info</h1>
+
+<FORM NAME="myform" ACTION="/rest/project/create" METHOD="POST">Enter the data<BR>
+	
+	<p>Project Id:</p>
+	<INPUT TYPE="text" NAME="projectId" VALUE=""><P>
+	
+	<p>Project Name:</p>
+	<INPUT TYPE="text" NAME="projectName" VALUE=""><P>
+	
+	<p>Project Symbol:</p>
+	<INPUT TYPE="text" NAME="projectSymbol" VALUE=""><P>
+	
+	<p>Project Decimals:</p>
+	<INPUT TYPE="number" NAME="itemQty" VALUE=""><P>
+	
+	<p>Project Total Supply:</p>
+	<INPUT TYPE="number" NAME="projectTotalSupply" VALUE=""><P>
+	
+	<INPUT TYPE="button" NAME="button" Value="Submit" onClick="postData(this.form)">
+
+</FORM>
+</BODY>
+</HTML>

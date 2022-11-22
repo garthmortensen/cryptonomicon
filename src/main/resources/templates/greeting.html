@@ -11,44 +11,12 @@
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
 
-<!-- TODO: add js functionality found in RedisData greeting.html -->
-	<SCRIPT LANGUAGE="JavaScript">
-	function postData(form)
-	{
-	// https://attacomsian.com/blog/xhr-json-post-request
-	  const xhr = new XMLHttpRequest()
-	
-	// listen for `load` event
-	  xhr.onload = () => { // callback starts
-	  // print JSON response
-	  if (xhr.status >= 200 && xhr.status < 300) {
-	    // parse JSON
-	    const response = JSON.parse(xhr.responseText)
-	    console.log("Done", response)
-	  }
-	}
-
-	// open request
-	xhr.open('POST', '/rest/project/create')
-
-	// set `Content-Type` header
-	xhr.setRequestHeader('Content-Type', 'application/json')
-	formData = new FormData(form)
-	// send rquest with JSON payload
-	formData = new FormData(form)
-	formString = JSON.stringify(Object.fromEntries(formData));
-	console.log(formString);
-	xhr.send(formString)
-	}
-</SCRIPT>
 </HEAD>
 <BODY>
 
   <h1>Welcome to BetterCryptoBureau</h1>
 
-
   <p th:text="'Hello, ' + ${name} + '!'"/>
-
 
   <h2>About</h2>
 

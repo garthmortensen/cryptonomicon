@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
-// REST handled rest 
+// REST handles GET/POST/etc requests
 @RestController
 public class MyRestController {
 	@Autowired
@@ -39,6 +39,7 @@ public class MyRestController {
 		}
 		
 		// FYI: @PostMapping maps HTTP POST requests to a specific handler method
+		// http://localhost:8080/rest/project/create?projectId=id3&projectName=bitcoin&projectSymbol=btc&projectDecimals=10&projectTotalSupply=1000
 		@PostMapping(value = "/rest/project/create", consumes= {"*/*"} )
 		public Project createProject(@RequestBody Project project) {
 			System.out.println(project.toString());
@@ -46,17 +47,20 @@ public class MyRestController {
 			return project;
 		}
 		
-		// http://localhost:8080/data/?projectId=1
-		// this is search functionality that can be expanded to search by eg Symbol
-		@GetMapping(value = "/data/{projectId}") 
-		public Project getProjectIdData(@PathVariable String projectId) {
+		// XXX: is this endpoint ok? http://localhost:8080/data/id1?projectId=id1
+		// XXX: changing from this fixed GET: public Project getItemIdData(@PathVariable String projectId) {
+		@GetMapping(value = "/data/{projectId}")
+		public Project getProjectIdData(@RequestParam("projectId") String projectId) {
 			Project iget = null;
-			System.out.println("getting item with id "+projectId);
+			System.out.println("getting project with id "+projectId);
  			try {
 				iget = ir.findById(projectId).get();
 			} catch (Exception e) {
-				System.out.println("Not found ");
+				System.out.println("Not found xxx");
 			}
  			return iget;
 		}
+		
+		// TODO: search by secondary identifer
+		// https://docs.spring.io/spring-data/jpa/docs/1.11.1.RELEASE/reference/html/#jpa.query-methods.query-creation
 }

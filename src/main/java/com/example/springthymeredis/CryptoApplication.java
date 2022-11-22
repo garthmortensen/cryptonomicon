@@ -33,26 +33,36 @@ public class CryptoApplication implements CommandLineRunner {
 		System.out.println("Saving");
 		Project i = new Project();
 		i.setProjectId("id1");
-		i.setProjectName("ZZZZZ");
-//		i.setItemPrice(20.0);
-//		i.setItemQty(2);
+		i.setProjectName("Ethereum");
+		i.setProjectSymbol("ETH");
+		i.setProjectDecimals(10);
+		i.setProjectTotalSupply(1000);
 		ir.save(i);
-		System.out.println("saved");
+
+		Project d = new Project();
+		d.setProjectId("id2");
+		d.setProjectName("dogecoin");
+		d.setProjectSymbol("dog");
+		d.setProjectDecimals(10);
+		d.setProjectTotalSupply(1000);
+		ir.save(d);
+
+		System.out.println("Saved");
 
 		// search for something specific
 		//Get the item
 		Project iget = ir.findById("id1").get();
 		System.out.println("getting item with name "+iget.getProjectName());
 		
-//		//Update item
-//		iget.setItemName("table");
+		//Update item
+//		iget.setProjectName("table");
 //		ir.save(iget);
-//		Item iafterUpdate = ir.findById("id1").get();
-//		System.out.println("Item name after update is "+iafterUpdate.getItemName());
-//		
-//		//Delete item
+//		Project iafterUpdate = ir.findById("id1").get();
+//		System.out.println("Project name after update is "+iafterUpdate.getProjectName());
+		
+		//Delete item
 //		ir.delete(iafterUpdate);
-//		Item iafterDelete = ir.findById("id1").get();
-//		System.out.println("item name after delete is "+iafterDelete.getItemName());
+//		Project iafterDelete = ir.findById("id1").get();
+//		System.out.println("Project name after delete is "+iafterDelete.getProjectName());
 	}
 }
