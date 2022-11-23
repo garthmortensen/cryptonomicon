@@ -9,15 +9,18 @@ import com.example.springthymeredis.model.Project;
 
 // controller populates and returns thymeleaf templates
 // create a method handler which returns "greeting" page
+// @Controller prepares a model map with data and selects which view to render
+// it allows template expressions to read model variables
 @Controller
 public class MyController {
 	@GetMapping("/greeting")  // references url `/greeting`
 	public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {  // this returns some data, so use a Model
 		model.addAttribute("name", "my dude");  // key-value. copy "name" into greeting.html template
-		return "greeting.html";  // returns a thymeleaf template `greeting.html`
+		return "greeting.html";  // returns thymeleaf template `greeting.html`
 		}
 
-	// TODO: why do some routes appear in MyController, some in MyRestController?
+	// routes appearing in @Controller run through thymeleaf template engine and return dynamic htmls, @RestController routes return REST
+	// @GetMapping is a shortcut for @RequestMapping(method = RequestMethod.GET). Its newer and supports consumes
 	@GetMapping("/lookup")
 	public String lookup() {
 		return "project_details.html";
