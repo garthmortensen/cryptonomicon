@@ -32,37 +32,24 @@ public class CryptoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("Saving");
 		Project i = new Project();
-		i.setProjectId("id1");
-		i.setProjectName("Ethereum");
 		i.setProjectSymbol("ETH");
+		i.setProjectName("Ethereum");
 		i.setProjectDecimals(10);
 		i.setProjectTotalSupply(1000);
 		ir.save(i);
 
 		Project d = new Project();
-		d.setProjectId("id2");
+		d.setProjectSymbol("DOG");
 		d.setProjectName("dogecoin");
-		d.setProjectSymbol("dog");
 		d.setProjectDecimals(10);
 		d.setProjectTotalSupply(1000);
 		ir.save(d);
 
 		System.out.println("Saved");
 
-		// search for something specific
 		//Get the item
-		Project iget = ir.findById("id1").get();
+		Project iget = ir.findById("ETH").get();
 		System.out.println("getting item with name "+iget.getProjectName());
-		
-		//Update item
-//		iget.setProjectName("table");
-//		ir.save(iget);
-//		Project iafterUpdate = ir.findById("id1").get();
-//		System.out.println("Project name after update is "+iafterUpdate.getProjectName());
-		
-		//Delete item
-//		ir.delete(iafterUpdate);
-//		Project iafterDelete = ir.findById("id1").get();
-//		System.out.println("Project name after delete is "+iafterDelete.getProjectName());
+
 	}
 }

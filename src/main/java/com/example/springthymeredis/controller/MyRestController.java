@@ -33,19 +33,13 @@ public class MyRestController {
 			return "Greetings from Spring Boot!";
 		}
 		
-		@GetMapping("/something")
-		public String something() {
-			return "Greetings something!";
-		}
-		
-		// XXX: is this endpoint ok? 
-		@GetMapping(value = "/data/{projectId}")
-		public Project getItemIdData(@PathVariable String projectId) {  // http://localhost:8080/data/id1 = object oriented, built by system. this is the RESTful way, where everything is an object
+		@GetMapping(value = "/data/{projectSymbol}")
+		public Project getItemIdData(@PathVariable String projectSymbol) {  // http://localhost:8080/data/id1 = object oriented, built by system. this is the RESTful way, where everything is an object
 		// public Project getProjectIdData(@RequestParam("projectId") String projectId) {  // http://localhost:8080/data/id1?projectId=id1 = user centric, built by user
 			Project iget = null;
-			System.out.println("getting project with id "+projectId);
+			System.out.println("getting project with symbol "+projectSymbol);
  			try {
-				iget = ir.findById(projectId).get();
+				iget = ir.findById(projectSymbol).get();
 			} catch (Exception e) {
 				System.out.println("Not found xxx");
 			}
@@ -61,6 +55,5 @@ public class MyRestController {
 			return project;
 		}
 		
-		// TODO: search by secondary identifer
-		// https://docs.spring.io/spring-data/jpa/docs/1.11.1.RELEASE/reference/html/#jpa.query-methods.query-creation
+		// TODO: search by secondary identifer, using @indexer, it seems. Might need to add functionality to Repository
 }

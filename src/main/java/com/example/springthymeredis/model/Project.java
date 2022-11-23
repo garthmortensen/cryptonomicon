@@ -9,18 +9,18 @@ import org.springframework.data.redis.core.RedisHash;
 public class Project implements Serializable{
 	// FYI: @Id is Spring Data JPA. It indicates the field below is the PK
 	@Id
-	private String 	projectId;
-	private String 	projectName;  // TODO: @Id 2, or getBySecondId
 	private String 	projectSymbol;
+	private String 	projectName;  // TODO: @Id 2, or getBySecondId
 	private int 	projectDecimals;
 	private int 	projectTotalSupply;
 	
 	// id, pk
-	public String getProjectId() {
-		return projectId;
+	// projectSymbol
+	public String getProjectSymbol() {
+		return projectSymbol;
 	}
-	public void setProjectId(String projectId) {
-		this.projectId = projectId;
+	public void setProjectSymbol(String projectSymbol) {
+		this.projectSymbol = projectSymbol;
 	}
 	// projectName
 	public String getProjectName() {
@@ -28,13 +28,6 @@ public class Project implements Serializable{
 	}
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
-	}
-	// projectSymbol
-	public String getProjectSymbol() {
-		return projectSymbol;
-	}
-	public void setProjectSymbol(String projectSymbol) {
-		this.projectSymbol = projectSymbol;
 	}
 	// projectDecimals
 	public float getProjectDecimals() {
@@ -54,12 +47,10 @@ public class Project implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Project [projectId=").
-				append(projectId).
+		builder.append("projectSymbol=").
+				append(projectSymbol).
 				append(", projectName=").
 				append(projectName).
-				append(", projectSymbol=").
-				append(projectSymbol).
 				append(", projectDecimals=").
 				append(projectDecimals).
 				append(", projectTotalSupply=").
