@@ -30,7 +30,6 @@ public class CryptoApplication implements CommandLineRunner {
 	// FYI: @Override indicates the subclass is replacing inherited behavior
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("Saving");
 		Project i = new Project();
 		i.setProjectSymbol("ETH");
 		i.setProjectName("Ethereum");
@@ -44,7 +43,6 @@ public class CryptoApplication implements CommandLineRunner {
 		d.setProjectDecimals(10);
 		d.setProjectTotalSupply(1000);
 		ir.save(d);
-
 		System.out.println("Saved");
 
 		//Get the item

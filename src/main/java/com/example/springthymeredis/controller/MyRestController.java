@@ -30,7 +30,7 @@ public class MyRestController {
 		// FYI: @GetMapping maps HTTP GET requests to a specific handler method
 		@GetMapping("/")
 		public String index() {
-			return "Greetings from Spring Boot!";
+			return "You've reached the boring root page.";
 		}
 		
 		@GetMapping(value = "/data/{projectSymbol}")
